@@ -1,6 +1,11 @@
 const microphone = document.querySelector(".microphone")
 const content = document.querySelector(".message")
 
+const userName = prompt("What name should i be calling you")
+
+const UsernameOne = localStorage.setItem("name", userName)
+
+
 let p = document.createElement("p")
 
 const speechRecognition = window.speechRecognition || window.webkitSpeechRecognition;
@@ -23,6 +28,34 @@ recognition.addEventListener("result", (e) =>{
             p.innerHTML = greeting[Math.floor(Math.random() * greeting.length)];
             content.appendChild(p)
             ReplyWords(p.innerHTML)
+        }
+
+        p = document.createElement("p")
+    }
+
+    if(e.results[0].isFinal){
+        if(outputVoice.includes("what's my name")){
+            p = document.createElement("p")
+            p.classList.add("reply")
+            content.appendChild(p)
+            const realName = localStorage.getItem("name")
+            p.innerHTML = realName;
+            ReplyWords(p.innerHTML)  
+            console.log(realName)
+        }
+
+        p = document.createElement("p")
+    }
+
+    if(e.results[0].isFinal){
+        if(outputVoice.includes("what's my name")){
+            p = document.createElement("p")
+            p.classList.add("reply")
+            content.appendChild(p)
+            const realName = localStorage.getItem("name")
+            p.innerHTML = realName;
+            ReplyWords(p.innerHTML)  
+            console.log(realName)
         }
 
         p = document.createElement("p")
