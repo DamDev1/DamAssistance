@@ -20,12 +20,34 @@
         </div>
     </div>
 
-    <button>Note</button>
-
     <div id="demo"></div>
+
+    <div class="popupContainer">
+        <button class="popNote" onclick="popNote()">Note</button>
+        <div class="noteContainer">
+            <p>Now to use the application you need to speck this command: give me a command
+            </p>
+
+            <ol>
+                <li>Hey, Google,</li>
+                <li>What's the Date,</li>
+                <li>What's the Time,</li>
+                <li>Open TiKTOK,</li>
+                <li>Open Youtube,</li>
+                <li>How you been,</li>
+                <li>What's my name</li>
+                <li>Play music</li>
+                <li>Play random music</li>
+            </ol>
+        </div>
+    </div>
+
+    <input type="text" class="input">
+    <button class="send">click</button>
 
     <script src="main.js"></script>
     <script src="./src/greeting.js"></script>
     <script src="./src/sad.js"></script>
+    <script src="./src/note.js"></script>
 </body>
 </html>

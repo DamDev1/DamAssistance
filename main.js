@@ -18,7 +18,7 @@ UserMfName.textContent = localStorage.getItem("name")
 ////Getting the Date and time
 const date = new Date();
 
-const days = ["Sunday", "Monday", "Wednesday", "Thursday", "Friday", "Saturday"]
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 let day = days[date.getDay()];
 
 const dayNum = date.getDate();
@@ -36,10 +36,6 @@ const min = date.getMinutes();
 
 console.log(hour)
 
-// document.querySelector("#demo").innerHTML = month
-
-// console.log(localStorage.getItem("name"))
-// const userName = prompt("What name should i be calling you")
 let p = document.createElement("p")
 
 const speechRecognition = window.speechRecognition || window.webkitSpeechRecognition;
@@ -135,6 +131,40 @@ recognition.addEventListener("result", (e) =>{
             p.innerHTML = "Opening YouTube";
             ReplyWords(p.innerHTML)
             window.open(`https://www.tiktok.com`)  
+            console.log(realName)
+        }
+
+        p = document.createElement("p")
+    }
+
+    if(e.results[0].isFinal){
+        if(outputVoice.includes("play random music")){
+            p = document.createElement("p")
+            p.classList.add("reply")
+            content.appendChild(p)
+            p.innerHTML = "Playing KSI, Not over yet ";
+            ReplyWords(p.innerHTML)
+            window.open(`https://music.youtube.com/watch?v=h5zFpKscAj0&feature=share`)  
+            console.log(realName)
+        }
+
+        p = document.createElement("p")
+    }
+
+    if(e.results[0].isFinal){
+        if(outputVoice.includes("play music")){
+            
+            p = document.createElement("p")
+            p.classList.add("reply")
+            content.appendChild(p)
+            p.innerHTML = "Who's artist would you like to listen to";
+            ReplyWords(p.innerHTML);  
+
+            const musicName = prompt("Who's artist would you like to listen to");
+            window.open(`https://music.youtube.com/search?q=${musicName}`)
+
+            p.innerHTML = `this ${musicName}, on youtube music`;
+            ReplyWords(p.innerHTML); 
             console.log(realName)
         }
 
